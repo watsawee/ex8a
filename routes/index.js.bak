@@ -8,10 +8,10 @@ router.get('/', function(req, res, next) {
 });
 
 function file_readline(){
-const contents = fs.readFileSync('public\\input.txt', 'utf-8');
-contents.split(/\r?\n/).forEach(line => {
-console.log(`Line from file: ${line}`);
-});
+  const contents = fs.readFileSync('public\input.txt', 'utf-8');
+  contents.split(/\r?\n/).forEach(line => {
+  console.log(Line from file: ${line});
+  });
 }
 
 router.get('/wordcnt/:fav_team', function (req, res) {
