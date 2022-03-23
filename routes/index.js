@@ -1,7 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs')
 
 /* GET home page. */
+
+function file_readline(){
+  const contents = fs.readFileSync('public\\input.txt', 'utf-8');
+  contents.split(/\r?\n/).forEach(line => {
+    console.log(`Line from file: ${line}`);
+  });
+}
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
