@@ -11,12 +11,16 @@ function file_readline(fav_team){
   const contents = fs.readFileSync('public\\input.txt', 'utf-8');
   contents.split(/\r?\n/).forEach(line => {
   console.log(`Line from file: ${line}`);
+  if(line==fav_team)cnt++;
   });
+  return cnt;
 }
 
 router.get('/wordcnt', function (req, res) {
   var fav_team = req.params.fav_team;
-  res.send("word count API");	
+  var cnt = file_readline(fav_team);
+  console.log('word count -> '+cnt);
+  res.send("word count API - "+fav_team);	
 });
 
 module.exports = router;
