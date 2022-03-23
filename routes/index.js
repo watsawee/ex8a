@@ -28,7 +28,6 @@ router.get('/wordcnt/:fav_team', function (req, res) {
   res.send(heading+str1+str2);	
 });
 
-
 module.exports = router;
 
 
