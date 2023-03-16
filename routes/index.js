@@ -21,7 +21,10 @@ function file_reader(fav_team) {
 router.get('/wordcnt/:fav_team', function(req, res) {
   let fav_team = req.params.fav_team;
   let cnt = file_reader(fav_team);
-  res.send(`word count API - ${fav_team} (${cnt})`);
+  let heading = "<h2>Word Count Result</h2>";
+  let str1 = `Your favorite team -> ${fav_team}<br/>`;
+  let str2 = `Number of occurrences -> ${cnt} <br/>`;
+  res.send(heading + str1 + str2);
 });
 
 module.exports = router;
