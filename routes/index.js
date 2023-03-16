@@ -6,7 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/wordcnt', function(req, res) {
+router.get('/wordcnt/:fav_team', function(req, res) {
+  let fav_team = req.params.fav_team;
   res.send("word count API");
 });
 
