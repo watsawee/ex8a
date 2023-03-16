@@ -7,17 +7,21 @@ router.get('/', function(req, res, next) {
 });
 
 var fs = require('fs');
-function file_reader() {
+function file_reader(fav_team) {
+  let cnt = 0;
   const contents = fs.readFileSync('public\\input.txt', 'utf-8');
   contents.spilt(/\r?\n/).forEach(line => {
     console.log(`Line from file: ${line}`);
+    if (line == fav_team) cnt++;
   });
+
+  return cnt;
 };
 
 router.get('/wordcnt/:fav_team', function(req, res) {
   let fav_team = req.params.fav_team;
-  file_reader();
-  res.send("word count API - " + fav_team);
+  let cnt = file_reader(fav_team);
+  res.send(`word count API - ${fav_team} (${cnt})`);
 });
 
 module.exports = router;
